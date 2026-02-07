@@ -1,0 +1,102 @@
+{
+  "appName": {
+    "message": "Islamic Extension",
+    "description": "The name of the extension"
+  },
+  "appDescription": {
+    "message": "Provides prayer times, Quran verses, and nasheeds for Muslims",
+    "description": "The description of the extension"
+  },
+  "appTitle": {
+    "message": "Islamic Extension",
+    "description": "The title of the extension"
+  },
+  "selectCountry": {
+    "message": "Select Country:",
+    "description": "Label for country selection"
+  },
+  "chooseCountry": {
+    "message": "Choose a country",
+    "description": "Placeholder option for country selection"
+  },
+  "getPrayerTimes": {
+    "message": "Get Prayer Times",
+    "description": "Button to get prayer times"
+  },
+  "todayPrayerTimes": {
+    "message": "Today's Prayer Times:",
+    "description": "Heading for prayer times"
+  },
+  "fajr": {
+    "message": "Fajr",
+    "description": "Fajr prayer time label"
+  },
+  "sunrise": {
+    "message": "Sunrise",
+    "description": "Sunrise time label"
+  },
+  "dhuhr": {
+    "message": "Dhuhr",
+    "description": "Dhuhr prayer time label"
+  },
+  "asr": {
+    "message": "Asr",
+    "description": "Asr prayer time label"
+  },
+  "maghrib": {
+    "message": "Maghrib",
+    "description": "Maghrib prayer time label"
+  },
+  "isha": {
+    "message": "Isha",
+    "description": "Isha prayer time label"
+  },
+  "quranVerseNotificationTitle": {
+    "message": "Quran Verse of the Hour",
+    "description": "Title for Quran verse notifications"
+  },
+  "nasheedsPlayer": {
+    "message": "Nasheeds Player",
+    "description": "Title for nasheeds player"
+  },
+  "play": {
+    "message": "Play",
+    "description": "Play button label"
+  },
+  "pause": {
+    "message": "Pause",
+    "description": "Pause button label"
+  },
+  "stop": {
+    "message": "Stop",
+    "description": "Stop button label"
+  },
+  "volume": {
+    "message": "Volume: ",
+    "description": "Volume label"
+  },
+  "availableNasheeds": {
+    "message": "Available Nasheeds:",
+    "description": "Heading for available nasheeds"
+  },
+  "madinaMuneera": {
+    "message": "Madina Muneera",
+    "description": "Name of a nasheed"
+  },
+  "subhanallahWalhamdulillah": {
+    "message": "Subhanallah Walhamdulillah",
+    "description": "Name of a nasheed"
+  },
+  "allahuAkbar": {
+    "message": "Allahu Akbar",
+    "description": "Name of a nasheed"
+  },
+  "laIlahaIllallah": {
+    "message": "La Ilaha Illallah",
+    "description": "Name of a nasheed"
+  },
+  "istighfar": {
+    "message": "Astaghfirullah",
+    "description": "Name of a nasheed"
+  }
+}

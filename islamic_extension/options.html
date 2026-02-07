@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title id="options-title" data-i18n="appName">Islamic Extension Options</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 650px;
+      margin: 20px auto;
+      padding: 25px;
+      background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .mosque-icon {
+      font-size: 50px;
+      margin-bottom: 15px;
+      color: #2e7d32;
+    }
+    h1 {
+      color: #1b5e20;
+      margin: 0;
+      font-size: 28px;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+    .nasheed-player {
+      text-align: center;
+      margin: 25px 0;
+      padding: 30px;
+      border-radius: 15px;
+      background: white;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      border: 2px solid #4caf50;
+    }
+    .nasheed-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    .nasheed-icon {
+      font-size: 35px;
+      color: #2e7d32;
+    }
+    h2 {
+      color: #1b5e20;
+      margin: 0;
+      font-size: 24px;
+    }
+    .controls {
+      margin: 20px 0;
+    }
+    button {
+      padding: 12px 20px;
+      margin: 0 8px;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 15px rgba(46, 125, 50, 0.3);
+    }
+    button:disabled {
+      background: linear-gradient(135deg, #cccccc 0%, #999999 100%);
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+    .volume-control {
+      margin: 20px 0;
+      padding: 15px;
+      background: #f1f8e9;
+      border-radius: 10px;
+    }
+    .volume-control label {
+      color: #2e7d32;
+      font-weight: 600;
+      margin-right: 10px;
+    }
+    input[type="range"] {
+      width: 200px;
+      height: 8px;
+      border-radius: 5px;
+      background: #c8e6c9;
+      outline: none;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #4caf50;
+      cursor: pointer;
+    }
+    .nasheed-list {
+      margin: 25px 0;
+      text-align: left;
+      background: #f1f8e9;
+      border-radius: 10px;
+      padding: 20px;
+    }
+    .nasheed-list h3 {
+      color: #1b5e20;
+      margin-top: 0;
+      font-size: 20px;
+      text-align: center;
+    }
+    .nasheed-item {
+      padding: 12px 15px;
+      border-bottom: 1px solid #c8e6c9;
+      cursor: pointer;
+      border-radius: 6px;
+      margin: 5px 0;
+      transition: all 0.2s ease;
+      color: #2e7d32;
+      font-size: 16px;
+    }
+    .nasheed-item:last-child {
+      border-bottom: none;
+    }
+    .nasheed-item:hover {
+      background-color: #c8e6c9;
+      transform: translateX(5px);
+    }
+    .nasheed-item.active {
+      background: linear-gradient(135deg, #a5d6a7 0%, #81c784 100%);
+      font-weight: 600;
+      color: #1b5e20;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="mosque-icon">🎧🕌</div>
+    <h1 id="options-header" data-i18n="appName">Islamic Extension Options</h1>
+  </div>
+  
+  <div class="nasheed-player">
+    <div class="nasheed-header">
+      <div class="nasheed-icon">🎧</div>
+      <h2 id="nasheeds-player-title" data-i18n="nasheedsPlayer"></h2>
+    </div>
+    <audio id="nasheedAudio" preload="none"></audio>
+    
+    <div class="controls">
+      <button id="playBtn" data-i18n="play"></button>
+      <button id="pauseBtn" data-i18n="pause"></button>
+      <button id="stopBtn" data-i18n="stop"></button>
+    </div>
+    
+    <div class="volume-control">
+      <label for="volumeSlider" id="volume-label" data-i18n="volume"></label>
+      <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.7">
+    </div>
+    
+    <div class="nasheed-list">
+      <h3 id="available-nasheeds-title" data-i18n="availableNasheeds"></h3>
+      <div class="nasheed-item" data-src="nasheeds/madina_muneera.mp3" data-i18n="madinaMuneera"></div>
+      <div class="nasheed-item" data-src="nasheeds/subhanallah.mp3" data-i18n="subhanallahWalhamdulillah"></div>
+      <div class="nasheed-item" data-src="nasheeds/allahu_akbar.mp3" data-i18n="allahuAkbar"></div>
+      <div class="nasheed-item" data-src="nasheeds/la_ilaha_illallah.mp3" data-i18n="laIlahaIllallah"></div>
+      <div class="nasheed-item" data-src="nasheeds/istighfar.mp3" data-i18n="istighfar"></div>
+    </div>
+  </div>
+  
+  <script src="options.js"></script>
+  <script src="i18n.js"></script>
+</body>
+</html>

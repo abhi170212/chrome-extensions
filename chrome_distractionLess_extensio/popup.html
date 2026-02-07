@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      width: 320px;
+      min-height: 400px;
+      padding: 25px;
+      font-family: 'Poppins', Arial, sans-serif;
+      background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+      color: #fff;
+      background-attachment: fixed;
+    }
+    
+    .container {
+      text-align: center;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 25px;
+    }
+    
+    .logo-icon {
+      font-size: 28px;
+      animation: pulse 2s infinite;
+    }
+    
+    h1 {
+      font-size: 22px;
+      background: linear-gradient(135deg, #ff0000, #ff4d4d);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 5px;
+    }
+    
+    .subtitle {
+      font-size: 14px;
+      color: #aaa;
+      margin-bottom: 25px;
+      font-weight: 300;
+    }
+    
+    .toggle-container {
+      margin: 25px 0;
+      position: relative;
+    }
+    
+    .toggle-btn {
+      background: linear-gradient(135deg, #ff0000, #b30000);
+      color: white;
+      border: none;
+      padding: 16px 25px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      width: 100%;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(255, 0, 0, 0.3);
+      letter-spacing: 0.5px;
+    }
+    
+    .toggle-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: 0.5s;
+    }
+    
+    .toggle-btn:hover::before {
+      left: 100%;
+    }
+    
+    .toggle-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(255, 0, 0, 0.5);
+      background: linear-gradient(135deg, #ff3333, #cc0000);
+    }
+    
+    .toggle-btn:active {
+      transform: translateY(1px);
+    }
+    
+    .status {
+      margin: 20px 0;
+      font-weight: 500;
+      font-size: 15px;
+      padding: 12px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .enabled {
+      color: #4ade80;
+      border-color: rgba(74, 222, 128, 0.3);
+    }
+    
+    .disabled {
+      color: #f87171;
+      border-color: rgba(248, 113, 113, 0.3);
+    }
+    
+    .features {
+      text-align: left;
+      margin-top: 25px;
+      font-size: 14px;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .features h3 {
+      text-align: center;
+      color: #ff6b6b;
+      margin-bottom: 15px;
+      font-size: 16px;
+      font-weight: 600;
+      position: relative;
+    }
+    
+    .features h3::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 2px;
+      background: linear-gradient(135deg, #ff0000, #ff4d4d);
+      margin: 8px auto 0;
+      border-radius: 2px;
+    }
+    
+    .features ul {
+      padding-left: 20px;
+      margin-top: 15px;
+    }
+    
+    .features li {
+      margin-bottom: 12px;
+      position: relative;
+      padding-left: 25px;
+      color: #ddd;
+    }
+    
+    .features li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #4ade80;
+      font-weight: bold;
+    }
+    
+    .footer {
+      margin-top: 25px;
+      font-size: 12px;
+      color: #777;
+      text-align: center;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+    
+    .pulse-animation {
+      animation: pulse 0.5s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <div class="logo-icon">🎬</div>
+      <h1>DistractionLess</h1>
+    </div>
+    <div class="subtitle">Focus on what matters</div>
+    
+    <div class="toggle-container">
+      <button id="toggleBtn" class="toggle-btn">Enable Focus Mode</button>
+      <div id="status" class="status disabled">Status: Disabled</div>
+    </div>
+    
+    <div class="features">
+      <h3>Enhanced Experience</h3>
+      <ul>
+        <li>Hides distracting recommendations</li>
+        <li>Removes comment sections</li>
+        <li>Minimizes header clutter</li>
+        <li>Promotes video content focus</li>
+        <li>Eliminates related videos</li>
+        <li>Smooth animated transitions</li>
+        <li>Beautiful gradient design</li>
+      </ul>
+    </div>
+    
+    <div class="footer">
+      Made with ❤️ for better focus
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

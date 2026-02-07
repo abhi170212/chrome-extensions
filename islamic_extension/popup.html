@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      width: 320px;
+      padding: 20px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+      margin: 0;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .mosque-icon {
+      font-size: 40px;
+      margin-bottom: 10px;
+      color: #2e7d32;
+    }
+    h3 {
+      color: #1b5e20;
+      margin: 0;
+      font-size: 22px;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+    .container {
+      text-align: center;
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    select, button {
+      width: 100%;
+      padding: 12px;
+      margin: 12px 0;
+      border-radius: 8px;
+      border: 2px solid #4caf50;
+      font-size: 16px;
+      font-weight: 500;
+    }
+    select {
+      background-color: #f1f8e9;
+      color: #2e7d32;
+    }
+    select:focus, button:focus {
+      outline: none;
+      border-color: #2e7d32;
+      box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.2);
+    }
+    button {
+      background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(46, 125, 50, 0.3);
+    }
+    .prayer-times {
+      text-align: left;
+      margin-top: 20px;
+      background: #f1f8e9;
+      border-radius: 10px;
+      padding: 15px;
+    }
+    .prayer-item {
+      padding: 12px 0;
+      border-bottom: 1px solid #c8e6c9;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 16px;
+      color: #2e7d32;
+    }
+    .prayer-item:last-child {
+      border-bottom: none;
+    }
+    .prayer-item strong {
+      color: #1b5e20;
+    }
+    .set-alarm-btn {
+      padding: 6px 12px;
+      background: linear-gradient(135deg, #81c784 0%, #4caf50 100%);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 13px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .set-alarm-btn:hover {
+      background: linear-gradient(135deg, #66bb6a 0%, #43a047 100%);
+      transform: scale(1.05);
+    }
+    .quran-verse {
+      background: linear-gradient(135deg, #a5d6a7 0%, #81c784 100%);
+      border-radius: 10px;
+      padding: 15px;
+      margin: 15px 0;
+      text-align: center;
+      color: #1b5e20;
+      font-style: italic;
+      border-left: 4px solid #2e7d32;
+    }
+    .quran-verse-text {
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+    .quran-verse-surah {
+      font-size: 14px;
+      font-weight: 600;
+      color: #2e7d32;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="mosque-icon">🕌</div>
+    <h3 id="prayer-times-title" data-i18n="appName">Islamic Prayer Times</h3>
+  </div>
+  
+  <div class="container">
+    <div id="quranVerseSection" class="quran-verse">
+      <div class="quran-verse-text" id="verseText">Loading Quran verse...</div>
+      <div class="quran-verse-surah" id="verseSurah"></div>
+    </div>
+    <label for="country" id="select-country-label" data-i18n="selectCountry"></label>
+    <select id="country">
+      <option value="" id="choose-country-option" data-i18n="chooseCountry"></option>
+      <option value="AF">🇦🇫 Afghanistan</option>
+      <option value="DZ">🇩🇿 Algeria</option>
+      <option value="AU">🇦🇺 Australia</option>
+      <option value="BD">🇧🇩 Bangladesh</option>
+      <option value="CA">🇨🇦 Canada</option>
+      <option value="EG">🇪🇬 Egypt</option>
+      <option value="FR">🇫🇷 France</option>
+      <option value="DE">🇩🇪 Germany</option>
+      <option value="IN">🇮🇳 India</option>
+      <option value="ID">🇮🇩 Indonesia</option>
+      <option value="IR">🇮🇷 Iran</option>
+      <option value="IQ">🇮🇶 Iraq</option>
+      <option value="JO">🇯🇴 Jordan</option>
+      <option value="KW">🇰🇼 Kuwait</option>
+      <option value="LB">🇱🇧 Lebanon</option>
+      <option value="MY">🇲🇾 Malaysia</option>
+      <option value="MA">🇲🇦 Morocco</option>
+      <option value="NG">🇳🇬 Nigeria</option>
+      <option value="PK">🇵🇰 Pakistan</option>
+      <option value="PS">🇵🇸 Palestine</option>
+      <option value="QA">🇶🇦 Qatar</option>
+      <option value="SA">🇸🇦 Saudi Arabia</option>
+      <option value="ES">🇪🇸 Spain</option>
+      <option value="SD">🇸🇩 Sudan</option>
+      <option value="SY">🇸🇾 Syria</option>
+      <option value="TN">🇹🇳 Tunisia</option>
+      <option value="TR">🇹🇷 Turkey</option>
+      <option value="AE">🇦🇪 UAE</option>
+      <option value="GB">🇬🇧 United Kingdom</option>
+      <option value="US">🇺🇸 United States</option>
+      <option value="YE">🇾🇪 Yemen</option>
+    </select>
+    <button id="getPrayerTimes" data-i18n="getPrayerTimes"></button>
+     
+    <div id="prayerContainer" class="prayer-times" style="display:none;">
+      <h4 id="todays-prayer-times-heading" data-i18n="todayPrayerTimes"></h4>
+      <div id="prayerTimesList"></div>
+    </div>
+     
+    <div id="calendarSection" class="calendar-section" style="display:none; margin-top: 20px;">
+      <h3 id="islamic-calendar-title" style="color: #2e7d32; margin-top: 20px;">Islamic Calendar</h3>
+      <div id="islamicCalendarDisplay" style="background: #f1f8e9; padding: 15px; border-radius: 10px; margin: 10px 0;">
+        <div id="currentDate" style="font-size: 18px; font-weight: bold; color: #1b5e20; margin-bottom: 10px;"></div>
+        <div id="islamicDate" style="font-size: 16px; color: #2e7d32; margin-bottom: 10px;"></div>
+        <div id="hijriDate" style="font-size: 15px; color: #4caf50; margin-bottom: 15px;"></div>
+        <button id="showCalendarInfo" style="background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%); color: white; border: none; padding: 8px 15px; border-radius: 6px; cursor: pointer; font-weight: 600;">About Islamic Calendar</button>
+      </div>
+      <div id="calendarInfo" class="quran-verse" style="display:none; margin-top: 15px;">
+        <h4 style="margin-top: 0; color: #1b5e20;">About the Islamic Calendar</h4>
+        <p>The Islamic calendar is a lunar calendar consisting of 12 months in a year of 354 or 355 days. It is used to determine the proper days of Islamic holidays and rituals, such as the annual period of fasting and the proper time for the pilgrimage to Mecca.</p>
+        <p>The calendar is based on the Hijra (migration) of Prophet Muhammad (PBUH) from Mecca to Medina in 622 CE. The months are determined by the sighting of the new moon.</p>
+        <p>The 12 months are: Muharram, Safar, Rabi' al-Awwal, Rabi' al-Thani, Jumada al-Awwal, Jumada al-Thani, Rajab, Sha'ban, Ramadan, Shawwal, Dhu al-Qi'dah, and Dhu al-Hijjah.</p>
+      </div>
+    </div>
+  </div>
+   
+  <script src="popup.js"></script>
+  <script src="i18n.js"></script>
+</body>
+</html>

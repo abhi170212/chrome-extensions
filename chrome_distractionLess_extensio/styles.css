@@ -1,0 +1,373 @@
+/* DistractionLess YouTube Extension Styles */
+
+/* Smooth transitions for all elements */
+* {
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+/* Main container adjustments with smooth animations */
+.distractionless-enabled #guide-content,
+.distractionless-enabled #related,
+.distractionless-enabled ytd-watch-next-secondary-results-renderer,
+.distractionless-enabled #comments,
+.distractionless-enabled #secondary {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  overflow: hidden;
+}
+
+/* Animate elements when disabling distraction-free mode */
+.distractionless-enabled:not(.distractionless-exiting) #guide-content,
+.distractionless-enabled:not(.distractionless-exiting) #related,
+.distractionless-enabled:not(.distractionless-exiting) ytd-watch-next-secondary-results-renderer,
+.distractionless-enabled:not(.distractionless-exiting) #comments,
+.distractionless-enabled:not(.distractionless-exiting) #secondary {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+/* Header adjustments */
+.distractionless-enabled #masthead-container,
+.distractionless-enabled #yt-masthead-container {
+  padding-top: 0 !important;
+  height: 60px !important;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+/* Video player enhancements with subtle animations */
+.distractionless-enabled #ytd-player {
+  max-width: 90% !important;
+  margin: 30px auto !important;
+  display: block !important;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transform: scale(1.02);
+  transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+.distractionless-enabled #player-container {
+  margin: 0 auto !important;
+  padding: 10px !important;
+}
+
+/* Center the main content */
+.distractionless-enabled #content.ytd-page-manager {
+  margin-left: 0 !important;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+/* Reduce header height with animation */
+.distractionless-enabled ytd-app[wide-scale_] #header.ytd-app {
+  min-height: 60px !important;
+  background: linear-gradient(135deg, #ff0000, #b30000);
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+/* Focus mode for video */
+.distractionless-video-focus {
+  position: relative;
+  z-index: 9999;
+  transform: scale(1.03);
+  box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+/* Enhanced button styles for extension controls with animations */
+.distractionless-toggle-btn {
+  background: linear-gradient(135deg, #ff0000, #b30000);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000000;
+  box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.distractionless-toggle-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(255, 0, 0, 0.6);
+  background: linear-gradient(135deg, #ff3333, #cc0000);
+}
+
+.distractionless-toggle-btn:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+.distractionless-toggle-btn::before {
+  content: '🎬';
+  font-size: 16px;
+}
+
+/* Pulse animation for the button */
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7); }
+  70% { box-shadow: 0 0 0 12px rgba(255, 0, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
+}
+
+/* Float animation for the button */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Animation for smoother transitions */
+@keyframes slideOutLeft {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes zoomOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
+.slide-out-left-element {
+  animation: slideOutLeft 0.7s forwards;
+}
+
+.slide-in-left-element {
+  animation: slideInLeft 0.7s forwards;
+}
+
+.slide-out-right-element {
+  animation: slideOutRight 0.7s forwards;
+}
+
+.slide-in-right-element {
+  animation: slideInRight 0.7s forwards;
+}
+
+.fade-in-element {
+  animation: fadeIn 0.7s forwards;
+}
+
+.fade-out-element {
+  animation: fadeOut 0.7s forwards;
+}
+
+.zoom-in-element {
+  animation: zoomIn 0.5s forwards;
+}
+
+.zoom-out-element {
+  animation: zoomOut 0.5s forwards;
+}
+
+/* Enhanced focus mode */
+.distractionless-focus-mode {
+  background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.95) 100%);
+  animation: fadeIn 0.8s forwards;
+}
+
+/* Subtle glowing effect for video player */
+.distractionless-enabled #movie_player,
+.distractionless-enabled .html5-video-player {
+  position: relative;
+}
+
+.distractionless-enabled #movie_player::after,
+.distractionless-enabled .html5-video-player::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(255, 0, 0, 0.2);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Animated gradient background */
+.distractionless-enabled ytd-app {
+  background: linear-gradient(135deg, rgba(15,15,15,0.95) 0%, rgba(30,30,30,0.95) 100%) !important;
+}
+
+/* Subtle animation for content area */
+.distractionless-enabled #page-manager {
+  animation: zoomIn 0.8s forwards;
+}
+
+/* Ensure video player maintains focus with enhanced styling */
+.distractionless-enabled .html5-video-container {
+  width: 100% !important;
+  max-width: 100% !important;
+  transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+.distractionless-enabled .ytp-chrome-bottom {
+  width: 100% !important;
+  background: rgba(0, 0, 0, 0.8) !important;
+  backdrop-filter: blur(10px);
+}
+
+/* Enhanced title area styling */
+.distractionless-enabled #above-the-fold {
+  background: transparent !important;
+  margin: 20px auto !important;
+  max-width: 90% !important;
+  padding: 15px !important;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+}
+
+/* Adjust for responsive design with animations */
+@media screen and (max-width: 768px) {
+  .distractionless-enabled #ytd-player {
+    max-width: 95% !important;
+    margin: 20px auto !important;
+    border-radius: 8px;
+  }
+  
+  .distractionless-toggle-btn {
+    top: 10px;
+    right: 10px;
+    padding: 10px 16px;
+    font-size: 12px;
+  }
+}
+
+/* Animation when entering distraction-free mode */
+.distractionless-entering #guide-content,
+.distractionless-entering #related,
+.distractionless-entering #comments,
+.distractionless-entering #secondary {
+  animation: slideOutLeft 0.8s forwards;
+}
+
+/* Animation when exiting distraction-free mode */
+.distractionless-exiting #guide-content,
+.distractionless-exiting #related,
+.distractionless-exiting #comments,
+.distractionless-exiting #secondary {
+  animation: slideInRight 0.8s forwards;
+}
+
+/* Smooth background transition */
+.distractionless-enabled {
+  background: linear-gradient(135deg, rgba(10,10,10,0.98) 0%, rgba(25,25,25,0.98) 100%) !important;
+  transition: background 1s ease !important;
+}
+
+/* Enhanced video info styling */
+.distractionless-enabled #video-title {
+  color: white !important;
+  font-weight: 600 !important;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5) !important;
+}
+
+.distractionless-enabled #upload-info {
+  background: transparent !important;
+  margin: 10px auto !important;
+  max-width: 90% !important;
+  padding: 10px !important;
+  border-radius: 8px;
+  backdrop-filter: blur(5px);
+}
+
+/* Animation for when elements are removed */
+.animated-hide {
+  opacity: 0;
+  transform: translateX(-100%) scale(0.8);
+  transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+/* Custom scrollbar for the distraction-free environment */
+.distractionless-enabled ::-webkit-scrollbar {
+  width: 8px;
+}
+
+.distractionless-enabled ::-webkit-scrollbar-track {
+  background: rgba(30, 30, 30, 0.5);
+  border-radius: 4px;
+}
+
+.distractionless-enabled ::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #ff0000, #b30000);
+  border-radius: 4px;
+}
+
+.distractionless-enabled ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #ff3333, #cc0000);
+}
